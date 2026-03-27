@@ -1,0 +1,27 @@
+.keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 8px;
+    width: 200px;
+}
+
+.keys button {
+    height: 40px;
+    width: 100%; 
+}
+
+.display {
+    width: 200px;
+    margin-bottom: 8px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
