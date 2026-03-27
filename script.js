@@ -27,7 +27,7 @@ document.addEventListener('keydown', function (e) {
     }
     if (e.key === 'Escape') {
         clearDisplay();
-        return;
+        return;     
     }
     const btn = document.getElementById(e.key);
     if (btn) btn.click();
