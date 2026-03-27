@@ -4,36 +4,33 @@
 
 body {
     margin: 0;
-    padding: 16px;
+    padding: 0;
     background-color: #d3d3d3;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
 }
 
 .menu {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding-bottom: 12px;
-    flex-wrap: wrap;
-    gap: 8px;
+    padding-bottom: 16px;
 }
 
 .brackets {
-    padding-left: 12px;
+    padding-left: 20px;
     display: flex;
-    gap: 20px;
+    gap: 36px;
 }
 
 .brackets button {
-    width: 40px;
-    height: 40px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     border: none;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 select {
@@ -45,14 +42,15 @@ select {
     background-color: rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.7);
     border-radius: 4px;
-    padding: 6px 36px 6px 12px;
-    font-size: 13px;
+    padding: 8px 40px 8px 14px;
+    font-size: 14px;
     color: white;
     cursor: pointer;
     outline: none;
 
     transition: background-color 300ms ease;
 
+    /* Custom dropdown arrow */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='white' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 12px center;
@@ -61,15 +59,14 @@ select {
 .Calculator {
     background-color: rgb(51, 51, 51);
     border-radius: 16px;
-    width: 100%;
-    max-width: 320px;
-    padding: 14px;
+    max-width: 375px;
+    padding: 16px;
 }
 
 .keys {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
+    gap: 10px;
 }
 
 .keys button {
@@ -78,124 +75,110 @@ select {
     border-radius: 50%;
     border: none;
     cursor: pointer;
-    font-size: 18px;
-    touch-action: manipulation; /* prevents double-tap zoom on mobile */
+    font-size: 24px;
 }
 
 .display {
-    height: 80px;
+    height: 96px;
     width: 100%;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     border-radius: 8px;
     border: none;
     padding: 10px;
-    font-size: 22px;
+    font-size: 24px;
     font-family: 'Helvetica', Times, serif;
     text-align: right;
 }
 
-/* --- Color rules (unchanged) --- */
-.keys button:nth-child(4n)    { background-color: rgb(52, 174, 255); }
-.keys button:nth-child(20)    { background-color: rgb(52, 248, 52); }
-.keys button:nth-child(-n+3)  { background-color: rgb(234, 49, 49); }
-.keys button:nth-child(1)     { background-color: rgb(52, 174, 255); }
+.keys button:nth-child(4n) {
+    background-color: rgb(52, 174, 255);
+}
+
+.keys button:nth-child(20) {
+    background-color: rgb(52, 248, 52);
+}
+
+.keys button:nth-child(-n+3) {
+    background-color: rgb(234, 49, 49);
+}
+
+.keys button:nth-child(1) {
+    background-color: rgb(52, 174, 255);
+}
+
 .keys button:nth-child(17),
 .keys button:nth-child(19),
-.brackets button              { background-color: grey; }
+.brackets button {
+    background-color: grey;
+}
 
-/* =====================
-   RESPONSIVE BREAKPOINTS
-   ===================== */
-
-/* Large phones / small tablets (≥ 480px) */
-@media (min-width: 480px) {
+/* 📱 Small devices (phones) */
+@media (max-width: 480px) {
     .Calculator {
-        max-width: 360px;
-        padding: 16px;
+        width: 95%;
+        padding: 12px;
+    }
+
+    .display {
+        height: 70px;
+        font-size: 18px;
     }
 
     .keys {
-        gap: 10px;
+        gap: 6px;
+    }
+
+    .keys button {
+        font-size: 18px;
+    }
+
+    .brackets {
+        gap: 16px;
+        padding-left: 10px;
+    }
+
+    .brackets button {
+        font-size: 14px;
+    }
+
+    select {
+        font-size: 12px;
+        padding: 6px 30px 6px 10px;
+    }
+}
+
+
+/* 📲 Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+    .Calculator {
+        width: 80%;
+        max-width: 400px;
+    }
+
+    .display {
+        height: 85px;
+        font-size: 22px;
     }
 
     .keys button {
         font-size: 22px;
     }
-
-    .display {
-        height: 88px;
-        font-size: 24px;
-        margin-bottom: 14px;
-    }
-
-    .brackets {
-        gap: 28px;
-        padding-left: 16px;
-    }
-
-    .brackets button {
-        width: 46px;
-        height: 46px;
-        font-size: 17px;
-    }
 }
 
-/* Tablets (≥ 768px) */
-@media (min-width: 768px) {
-    body {
-        padding: 24px;
-    }
 
+/* 💻 Large screens */
+@media (min-width: 1024px) {
     .Calculator {
         max-width: 420px;
         padding: 20px;
-        border-radius: 20px;
     }
 
-    .keys {
-        gap: 12px;
+    .display {
+        height: 110px;
+        font-size: 28px;
     }
 
     .keys button {
         font-size: 26px;
-    }
-
-    .display {
-        height: 100px;
-        font-size: 28px;
-        margin-bottom: 18px;
-    }
-
-    .brackets {
-        gap: 36px;
-        padding-left: 20px;
-    }
-
-    .brackets button {
-        width: 52px;
-        height: 52px;
-        font-size: 19px;
-    }
-
-    select {
-        font-size: 14px;
-        padding: 8px 40px 8px 14px;
-    }
-}
-
-/* Large tablets / landscape phones (≥ 1024px) */
-@media (min-width: 1024px) {
-    .Calculator {
-        max-width: 375px; /* lock back to original desktop size */
-        padding: 16px;
-    }
-
-    .keys button {
-        font-size: 24px;
-    }
-
-    .display {
-        height: 96px;
-        font-size: 24px;
     }
 }
